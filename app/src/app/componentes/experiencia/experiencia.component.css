@@ -1,0 +1,11 @@
+.eperiencia{
+    padding: 40px;
+}
+
+#experiencia{
+    background-image: linear-gradient(to top right,rgb(153, 84, 63), rgb(81, 64, 99));
+    height: 50%;
+    margin-top: 2%;
+    margin-left:6%;
+    margin-right: 6%;
+}

@@ -1,0 +1,25 @@
+.perfil{
+    transform: translate(30%, -20%);
+    position: relative;
+    width: 22%;
+    height: auto;
+    float:left;
+    margin: 0%;
+    padding: 0%;
+}
+
+#personal{
+    height: 40%;
+}
+
+.sobre-mi{
+    position: relative;
+    font-weight: 200;
+    margin-right: 15%;
+    left: 8%;
+    color: ivory;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    font-size: 150%;
+    font-family: 'Montserrat', sans-serif;
+}
