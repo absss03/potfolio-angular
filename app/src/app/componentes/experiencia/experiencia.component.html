@@ -1,9 +1,9 @@
 <section id="experiencia" class="rounded-4">
-    <div class="eperiencia">
+    <div class="eperiencia" >
         <h1>Experiencia</h1>
-        <h5>Insumos Ipsum (20XX-20XX)</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti autem omnis repellendus dolorum doloribus eligendi, labore sint possimus soluta animi. Cum odit qui sunt maiores repellat, eos voluptas ut aspernatur.</p>
-        <h5>Empresa Lorem (20XX - actual)</h5>
-        <p>Pasantia estudiantil en el area de investigacion y desarollo tecnologico, encargada de Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem magnam facilis fugiat quidem fuga ea eum beatae vitae! Nihil eos ratione minima assumenda debitis enim et iure dicta asperiores aperiam!</p>
+        <div *ngFor="let experiencia of experiencia">
+            <h5>{{experiencia.empresa}}</h5>
+            <p>{{experiencia.texto}}</p>
+        </div>
     </div>
 </section>

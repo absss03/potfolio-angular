@@ -3,39 +3,17 @@
         <div class="row row-cols-2">
             <div class="col-5">
                 <h2>Mis fortalezas</h2>
-                <p>Tengo gran atencion a los detalles, soy creativa.<br> Siempre busco resolver los problemas de una manera diferente. <br> Soy resiliente y aunque aveces procrastino, cuando me pongo una menta puedo estar horas trabajando hasta que termino lo que empeze. <br> Ademas se me da espectacular el trabajo en grupo y si es necesario puedo liderar a un equipo de manera exitosa.</p>
+                <span class="para">{{info}}</span>
             </div>
             <div class="col-7">
                 <h2>Mi Stack</h2>
-                <div class="barra-progreso">
-                    <span class="titulo">Python</span>
-                    <div class="progress m-1" style="max-width: 100%">
-                        <div class="progress-bar progress-bar"
-                            style="width: 60%; background-color: rgb(83, 49, 79)"> 60%
-                        </div>
-                    </div>
-                </div>
-                <div class="barra-progreso">
-                    <span class="titulo">C</span>
-                    <div class="progress m-1" style="max-width: 100%">
-                        <div class="progress-bar progress-bar"
-                            style="width: 50%; background-color: rgb(83, 49, 79)"> 55%
-                        </div>
-                    </div>
-                </div>
-                <div class="barra-progreso">
-                    <span class="titulo">HTML</span>
-                    <div class="progress m-1" style="max-width: 100%">
-                        <div class="progress-bar progress-bar"
-                            style="width: 50%; background-color: rgb(83, 49, 79)"> 50%
-                        </div>
-                    </div>
-                </div>
-                <div class="barra-progreso">
-                    <span class="titulo">CSS</span>
-                    <div class="progress m-1" style="max-width: 100%">
-                        <div class="progress-bar progress-bar"
-                            style="width: 40%; background-color: rgb(83, 49, 79)"> 40%
+                <div *ngFor="let stack of stack">
+                    <div class="barra-progreso" >
+                        <span class="titulo">{{stack.lenguaje}}</span>
+                        <div class="progress m-1" style="max-width: 100%">
+                            <div class="progress-bar progress-bar"
+                                [style]="stack.estilo"> {{stack.porcentaje}}
+                            </div>
                         </div>
                     </div>
                 </div>

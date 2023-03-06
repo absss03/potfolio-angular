@@ -4,3 +4,11 @@
     margin-right: 30px;
 
 }
+
+.progress-bar{
+    background-color: rgb(83, 49, 79);
+}
+
+.para{
+    white-space: pre-wrap;
+}

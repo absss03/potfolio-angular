@@ -1,40 +1,13 @@
 <section id="formacion">
     <h1 class="mt-5 mb-5 text-center">Formacion</h1>
     
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="col">
+    <div class="row row-cols-1 row-cols-md-4 g-4" >
+        <div class="col" *ngFor= "let formacion of formacion">
             <div class="card h-100 ">
-                <img src="../../../assets/img/Escudo-San-Esteban-Vectorizado-CYMK.jpg" class="card-img-top" alt="Escudo-San-Esteban">
+                <img [src]="formacion.imagen" class="card-img-top" [alt]="formacion.alt">
                 <div class="card-body text-center">
-                    <h5 class="card-title">Colegio San Esteban Bariloche</h5>
-                    <p class="card-text">Curse 4to y 5to y me egresé en 2021 con un bachiller en bilingue en lengua y matematica.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="../../../assets/img/unrn.jpg" class="card-img-top" alt="Logo UNRN">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Universidad Nacional de Rio Negro</h5>
-                    <p class="card-text">Empeze a cursar la carerra de Ingenieria en Computacion en el 2022 y ahora estoy cursando el segundo año de la carrera.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="../../../assets/img/argentina_programa.jpg" class="card-img-top" alt="Logo Argentina Programa">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Argentina Programa</h5>
-                    <p class="card-text">Terminne #SeProgramar la primera parte del programa y actualmente estoy cursando la segunda parte para convertirme en Desarolladora Full Stack.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="../../../assets/img/cambridge.jpg" class="card-img-top" alt="Cambridge English logo">
-                    <div class="card-body text-center">
-                    <h5 class="card-title">Camridge English Assesment</h5>
-                <p class="card-text">Estudie Ingles y rendí el Advanced (CAE) y el Proficiency (CPE) tengo un nivel de ingles C2 certificado.</p>
+                    <h5 class="card-title">{{formacion.institucion}}</h5>
+                    <p class="card-text">{{formacion.descripcionFormacion}}.</p>
                 </div>
             </div>
         </div>
