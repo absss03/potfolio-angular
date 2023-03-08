@@ -3,6 +3,7 @@
     "titulos": "Full Stack Dev. Jr | Ing. Coputación",
     "introduccion": "Mi nombre es Abigail Barbieri, nací y me crié en Bariloche.\nTengo curiosidad por la tecnologia y pasion por el arte.\nMe egrese de la secundaria en 2021 y mi formación académica es en Ingenieria en Computacion, actualmente estudiando en la Universidad Nacional de Rio Negro.\nAdemas de manera autogestionada estoy realizando el curso de Argentina Programa para certificarme como desarolladora Full Stack.",
     "fotoperfil": "../assets/img/yo.jpg",
+    "banner": "../assets/img/banner.jpg",
     "mail":"barbieriabigailok@gmail.com",
     "github": "absss03",
 
@@ -60,25 +61,21 @@
         {
             "id": 1,
             "lenguaje":"Python",
-            "estilo":"width: 60%",
             "porcentaje": "60%"
         },
         {
             "id": 2,
             "lenguaje":"C",
-            "estilo":"width: 50%",
             "porcentaje": "50%"
         },
         {
             "id": 3,
             "lenguaje":"HTML",
-            "estilo":"width: 50%",
             "porcentaje": "50%"
         },
         {
             "id": 4,
             "lenguaje":"CSS",
-            "estilo":"width: 40%",
             "porcentaje": "40%"
         }
     ],

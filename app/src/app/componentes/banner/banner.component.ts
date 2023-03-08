@@ -9,12 +9,14 @@ import { DatosService } from 'src/app/servicios/datos.service';
 export class BannerComponent implements OnInit {
   nombre: any;
   titulos: any;
+  banner: any;
   constructor(private datos: DatosService) {}
 
   ngOnInit(): void{
     this.datos.getDatos().subscribe(data =>{
       this.nombre = data.nombre;
       this.titulos = data.titulos;
+      this.banner = data.banner;
     })
   }
 }

@@ -6,7 +6,15 @@
                 <div>
                     <div class="card h-100" style="background-image: linear-gradient(to top right,rgb(153, 84, 63), rgb(81, 64, 99))" >
                         <div class="card-body" style="color: ivory">
-                            <h5 class="card-title">{{proyectos.tituloProyecto}}</h5>
+                            <div class="row">
+                                <div class="col">
+                                    <h5 class="card-title">{{proyectos.tituloProyecto}}</h5>
+                                </div>
+                                <div class="editar text-end col">
+                                    <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                                    <i class="fa-solid fa-xmark fa-lg m-2"></i>
+                                </div>
+                            </div>
                             <p class="card-text w-75">{{proyectos.descripcionProyecto}}</p>
                             <div class="text-end">
                                 <a [href]="proyectos.url" class="btn btn-light">{{proyectos.boton}}</a>

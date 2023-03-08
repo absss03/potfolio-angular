@@ -1,15 +1,16 @@
+.container-fluid{
+    padding-bottom: 5rem;
+    margin-bottom: 10px;
+}
+.personal{
+    height: 40%;
+}
 .perfil{
     transform: translate(30%, -20%);
     position: relative;
     width: 22%;
     height: auto;
     float:left;
-    margin: 0%;
-    padding: 0%;
-}
-
-#personal{
-    height: 40%;
 }
 
 .sobre-mi{
@@ -23,4 +24,8 @@
     font-size: 150%;
     font-family: 'Montserrat', sans-serif;
     white-space: pre-wrap;
+}
+
+.editar{
+    padding-right: 8.5rem;
 }
