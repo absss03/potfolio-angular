@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,10 @@ import { SkillsComponent } from './componentes/skills/skills.component';
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './componentes/login/login.component';
+import { ModalBannerComponent } from './componentes/modales/modal-banner/modal-banner.component';
+import { ModalExperienciaComponent } from './componentes/modales/modal-experiencia/modal-experiencia.component';
+import { ModalPersonalComponent } from './componentes/modales/modal-personal/modal-personal.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +28,18 @@ import { HttpClientModule } from '@angular/common/http';
     FormacionComponent,
     SkillsComponent,
     ProyectosComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    ModalBannerComponent,
+    ModalExperienciaComponent,
+    ModalPersonalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

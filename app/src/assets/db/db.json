@@ -1,6 +1,11 @@
 {
-    "nombre": "Abigail Barbieri",
-    "titulos": "Full Stack Dev. Jr | Ing. Coputación",
+    "nombre": "Abigail",
+    "apellido": "Barbieri",
+    "titulos":{
+
+        "uno":"Full Stack Dev. Jr",
+        "dos":"Ing. Coputación"   
+    },
     "introduccion": "Mi nombre es Abigail Barbieri, nací y me crié en Bariloche.\nTengo curiosidad por la tecnologia y pasion por el arte.\nMe egrese de la secundaria en 2021 y mi formación académica es en Ingenieria en Computacion, actualmente estudiando en la Universidad Nacional de Rio Negro.\nAdemas de manera autogestionada estoy realizando el curso de Argentina Programa para certificarme como desarolladora Full Stack.",
     "fotoperfil": "../assets/img/yo.jpg",
     "banner": "../assets/img/banner.jpg",
@@ -10,12 +15,16 @@
     "experiencia":[
         {
             "id":1,
-            "empresa": "Insumos Ipsum (20XX-20XX)",
+            "empresa": "Insumos Ipsum",
+            "inicio":"20XX",
+            "fin":"20XX",
             "texto": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti autem omnis repellendus dolorum doloribus eligendi, labore sint possimus soluta animi. Cum odit qui sunt maiores repellat, eos voluptas ut aspernatur."
         },
         {
             "id":2,
-            "empresa": "Empresa Lorem (20XX - actual)",
+            "empresa": "Empresa Lorem",
+            "inicio":"20XX",
+            "fin":"actual",
             "texto": "Pasantia estudiantil en el area de investigacion y desarollo tecnologico, encargada de Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem magnam facilis fugiat quidem fuga ea eum beatae vitae! Nihil eos ratione minima assumenda debitis enim et iure dicta asperiores aperiam!"
         }
     ],
@@ -85,15 +94,13 @@
             "id":1,
             "tituloProyecto":"Potrfolio/CV web (html+CSS)",
             "descripcionProyecto":"Maqueta estatica de mi portfolio web como parte del el proyecto final de Argentina Programa",
-            "url":"https://github.com/absss03/front_end",
-            "boton": "Hecha un vistazo"
+            "url":"https://github.com/absss03/front_end"
         },
         {
             "id":2,
             "tituloProyecto":"TP final integador (python)",
             "descripcionProyecto":"\"Cajero Automatico\" hecho en python como tp integrador de la materia Introduccion a la ingenieria en Computacion",
-            "url":"https://github.com/absss03/TRABAJO-PRACTICO-FINAL-",
-            "boton": "Hecha un vistazo"
+            "url":"https://github.com/absss03/TRABAJO-PRACTICO-FINAL-"
         }
     ]
 }

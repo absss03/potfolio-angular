@@ -8,6 +8,7 @@ import { DatosService } from 'src/app/servicios/datos.service';
 })
 export class BannerComponent implements OnInit {
   nombre: any;
+  apellido:any;
   titulos: any;
   banner: any;
   constructor(private datos: DatosService) {}
@@ -15,6 +16,7 @@ export class BannerComponent implements OnInit {
   ngOnInit(): void{
     this.datos.getDatos().subscribe(data =>{
       this.nombre = data.nombre;
+      this.apellido=data.apellido;
       this.titulos = data.titulos;
       this.banner = data.banner;
     })

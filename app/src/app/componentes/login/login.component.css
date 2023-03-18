@@ -1,0 +1,15 @@
+.modal-dialog{
+    width: 25%;
+}
+.modal-content{
+    background-color: rgb(37, 42, 46);
+    color: ivory;
+}
+.form-control{
+    color: black;
+}
+  
+.boton-footer{
+    margin-top: 1.5rem;
+    width: 95%;
+}
