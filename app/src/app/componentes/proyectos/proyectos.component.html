@@ -2,22 +2,23 @@
     <div class="container-fluid">
         <div class="row" >
             <h1 class=" mb-4">Mis proyectos</h1>
-            <div class="col-6 mb-3 mb-sm-0" *ngFor="let proyectos of proyectos">
+            <div class="col-6 mb-3 mb-sm-0" *ngFor="let proyecto of proyectos">
                 <div>
                     <div class="card h-100" style="background-image: linear-gradient(to top right,rgb(153, 84, 63), rgb(81, 64, 99))" >
                         <div class="card-body" style="color: ivory">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title">{{proyectos.tituloProyecto}}</h5>
+                                    <h5 class="card-title">{{proyecto.tituloProyecto}}</h5>
                                 </div>
-                                <div class="editar text-end col">
+                                <div *ngIf="esUsuario" class="editar text-end col">
                                     <i class="fa-solid fa-pen-to-square fa-lg"></i>
                                     <i class="fa-solid fa-xmark fa-lg m-2"></i>
+                                    <i class="fa-solid fa-plus fa-lg"></i>
                                 </div>
                             </div>
-                            <p class="card-text w-75">{{proyectos.descripcionProyecto}}</p>
+                            <p class="card-text w-75">{{proyecto.descripcionProyecto}}</p>
                             <div class="text-end">
-                                <a [href]="proyectos.url" class="btn btn-light">Hecha un vistazo</a>
+                                <a href={{proyecto.url}} class="btn btn-light">Hecha un vistazo</a>
                             </div> 
                         </div>
                     </div>

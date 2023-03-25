@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { DatosService } from 'src/app/servicios/datos.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { ExperienciasService } from 'src/app/servicios/experiencias.service';
+import { Experiencia } from 'src/app/model/experiencia';
+//import { DatosService } from 'src/app/servicios/datos.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -7,12 +9,15 @@ import { DatosService } from 'src/app/servicios/datos.service';
   styleUrls: ['./experiencia.component.css']
 })
 export class ExperienciaComponent implements OnInit {
-  experiencia: any;
-  constructor(private datos: DatosService) {}
+  @Input()
+  esUsuario: boolean = false;
+
+  experiencias: Experiencia[]=[];
+  constructor(private datos: ExperienciasService) {}
 
   ngOnInit(): void{
-    this.datos.getDatos().subscribe(data =>{
-      this.experiencia = data.experiencia;
+    this.datos.listarExperiencias().subscribe(data =>{
+      this.experiencias = data;
     })
   }
 }

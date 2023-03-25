@@ -2,12 +2,13 @@
     <div class="experiencia rounded-4">
         <div class="eperiencia" >
             <h1>Experiencia</h1>
-            <div *ngFor="let experiencia of experiencia">
+            <div *ngFor="let experiencia of experiencias">
                 <h5>{{experiencia.empresa}} ({{experiencia.inicio}}-{{experiencia.fin}})</h5>
-                <p>{{experiencia.texto}}</p>
-                <div class="editar text-end">
+                <p>{{experiencia.descripccionPuesto}}</p>
+                <div *ngIf="esUsuario" class="editar text-end">
                     <i class="fa-solid fa-pen-to-square fa-lg"></i>
                     <i class="fa-solid fa-xmark fa-lg m-2"></i>
+                    <i class="fa-solid fa-plus fa-lg"></i>
                 </div>
             </div>
         </div>

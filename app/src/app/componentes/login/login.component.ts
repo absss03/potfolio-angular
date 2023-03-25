@@ -1,5 +1,10 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Login } from 'src/app/model/login';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +13,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class LoginComponent implements OnInit {
+  @Input() esUsuario: boolean = false;
+  @Output() newItemEvent = new EventEmitter<boolean>();
+
+  changeStatus(value: boolean) {
+    this.newItemEvent.emit(value);
+  }
+
   form: FormGroup;
 
   constructor (private formBuilder: FormBuilder){

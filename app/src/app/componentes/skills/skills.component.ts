@@ -1,5 +1,9 @@
-import { Component , OnInit } from '@angular/core';
-import { DatosService } from 'src/app/servicios/datos.service'
+import { Component , OnInit, Input } from '@angular/core';
+import { StackService } from 'src/app/servicios/stacks.service';
+import { Stack } from 'src/app/model/stack';
+import { FortalezasService } from 'src/app/servicios/fortalezas.service';
+import { Fortaleza } from 'src/app/model/fortaleza';
+//import { DatosService } from 'src/app/servicios/datos.service'
 
 @Component({
   selector: 'app-skills',
@@ -7,14 +11,19 @@ import { DatosService } from 'src/app/servicios/datos.service'
   styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit {
-  stack: any;
-  info: any;
-  constructor(private datos: DatosService) {}
+  @Input()
+  esUsuario: boolean = false;
+  
+  stacks: Stack[]=[];
+  fortalezas: Fortaleza[]=[];
+  constructor(private datos: StackService, private datof: FortalezasService) {}
 
   ngOnInit(): void{
-    this.datos.getDatos().subscribe(data =>{
-      this.stack = data.stack;
-      this.info = data.fortalezas;
+    this.datos.listarStacks().subscribe(data =>{
+      this.stacks = data;
+    })
+    this.datof.listarHabilidades().subscribe(data =>{
+      this.fortalezas = data;
     })
   }
 }

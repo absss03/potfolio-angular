@@ -3,15 +3,18 @@
         <div class="row row-cols-2">
             <div class="col-5">
                 <h2>Mis fortalezas</h2>
-                <span class="para">{{info}}</span>
-                <div class="editar text-end">
-                    <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                    <i class="fa-solid fa-xmark fa-lg m-2"></i>
+                <div *ngFor="let fortaleza of fortalezas">
+                    <span class="para">{{fortaleza.texto}}</span>
+                    <div *ngIf="esUsuario" class="editar text-end">
+                        <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                        <i class="fa-solid fa-xmark fa-lg m-2"></i>
+                        <i class="fa-solid fa-plus fa-lg"></i>
+                    </div>
                 </div>
             </div>
             <div class="col-7">
                 <h2>Mi Stack</h2>
-                <div *ngFor="let stack of stack">
+                <div *ngFor="let stack of stacks">
                     <div class="barra-progreso" >
                         <span class="titulo">{{stack.lenguaje}}</span>
                         <div class="progress m-1" style="max-width: 100%">
@@ -19,9 +22,10 @@
                                 [style.width]="stack.porcentaje"> {{stack.porcentaje}}
                             </div>
                         </div>
-                        <div class="editar text-end">
+                        <div *ngIf="esUsuario" class="editar text-end">
                             <i class="fa-solid fa-pen-to-square fa-lg"></i>
                             <i class="fa-solid fa-xmark fa-lg m-2"></i>
+                            <i class="fa-solid fa-plus fa-lg"></i>
                         </div>
                     </div>
                 </div>
