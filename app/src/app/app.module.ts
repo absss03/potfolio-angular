@@ -17,6 +17,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { ModalBannerComponent } from './componentes/modales/modal-banner/modal-banner.component';
 import { ModalExperienciaComponent } from './componentes/modales/modal-experiencia/modal-experiencia.component';
 import { ModalPersonalComponent } from './componentes/modales/modal-personal/modal-personal.component';
+import { AgregarPresentacionComponent } from './componentes/modales/agregar-presentacion/agregar-presentacion.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ModalPersonalComponent } from './componentes/modales/modal-personal/mod
     LoginComponent,
     ModalBannerComponent,
     ModalExperienciaComponent,
-    ModalPersonalComponent
+    ModalPersonalComponent,
+    AgregarPresentacionComponent
   ],
   imports: [
     BrowserModule,

@@ -18,15 +18,15 @@ export class ProyectosService {
     return this.htttpClient.get<Proyecto>(this.url + `ver/${id}`);
   }
 
-  public crearProyecto(Proyecto: Proyecto): Observable<Proyecto[]>{
-    return this.htttpClient.post<Proyecto[]>(this.url + 'create', Proyecto);
+  public crearProyecto(proyecto: Proyecto): Observable<Proyecto>{
+    return this.htttpClient.post<Proyecto>(this.url + 'crear', proyecto);
   }
 
-  public editarProyecto(Proyecto: Proyecto): Observable<Proyecto[]>{
-    return this.htttpClient.post<Proyecto[]>(this.url + 'edit', Proyecto);
+  public editarProyecto(proyecto: Proyecto): Observable<Proyecto>{
+    return this.htttpClient.put<Proyecto>(this.url + 'editar', proyecto);
   }
 
-  public borrarProyecto(Proyecto: Proyecto): Observable<Proyecto[]>{
-    return this.htttpClient.post<Proyecto[]>(this.url + 'delete', Proyecto);
+  public borrarProyecto(id: number): Observable<Proyecto>{
+    return this.htttpClient.delete<Proyecto>(this.url + `borrar/${id}`);
   }
 }

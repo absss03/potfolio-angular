@@ -18,15 +18,15 @@ export class FortalezasService {
     return this.htttpClient.get<Fortaleza>(this.url + `ver/${id}`);
   }
 
-  public crearFortaleza(Fortaleza: Fortaleza): Observable<Fortaleza[]>{
-    return this.htttpClient.post<Fortaleza[]>(this.url + 'create', Fortaleza);
+  public crearFortaleza(fortaleza: Fortaleza): Observable<Fortaleza>{
+    return this.htttpClient.post<Fortaleza>(this.url + 'crear', fortaleza);
   }
 
-  public editarFortaleza(Fortaleza: Fortaleza): Observable<Fortaleza[]>{
-    return this.htttpClient.post<Fortaleza[]>(this.url + 'edit', Fortaleza);
+  public editarFortaleza(fortaleza: Fortaleza): Observable<Fortaleza>{
+    return this.htttpClient.put<Fortaleza>(this.url + 'editar', fortaleza);
   }
 
-  public borrarFortaleza(Fortaleza: Fortaleza): Observable<Fortaleza[]>{
-    return this.htttpClient.post<Fortaleza[]>(this.url + 'delete', Fortaleza);
+  public borrarFortaleza(id: number): Observable<Fortaleza>{
+    return this.htttpClient.delete<Fortaleza>(this.url + `borrar/${id}`);
   }
 }
