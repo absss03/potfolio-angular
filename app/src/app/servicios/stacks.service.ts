@@ -18,15 +18,15 @@ export class StackService {
     return this.htttpClient.get<Stack>(this.url + `ver/${id}`);
   }
 
-  public crearStack(Stacks: Stack): Observable<Stack[]>{
-    return this.htttpClient.post<Stack[]>(this.url + 'create', Stacks);
+  public crearStack(stack: Stack): Observable<Stack>{
+    return this.htttpClient.post<Stack>(this.url + 'crear', stack);
   }
 
-  public editarStack(Stacks: Stack): Observable<Stack[]>{
-    return this.htttpClient.post<Stack[]>(this.url + 'edit', Stacks);
+  public editarStack(stack: Stack): Observable<Stack>{
+    return this.htttpClient.put<Stack>(this.url + 'editar', stack);
   }
 
-  public borrarStack(Stacks: Stack): Observable<Stack[]>{
-    return this.htttpClient.post<Stack[]>(this.url + 'delete', Stacks);
+  public borrarStack(id: number): Observable<Stack>{
+    return this.htttpClient.delete<Stack>(this.url + `borrar/${id}`);
   }
 }

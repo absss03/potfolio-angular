@@ -18,15 +18,15 @@ export class ExperienciasService {
     return this.htttpClient.get<Experiencia>(this.url + `ver/${id}`);
   }
 
-  public crearExperiencia(experiencia: Experiencia): Observable<Experiencia[]>{
-    return this.htttpClient.post<Experiencia[]>(this.url + 'create', experiencia);
+  public crearExperiencia(experiencia: Experiencia): Observable<Experiencia>{
+    return this.htttpClient.post<Experiencia>(this.url + 'crear', experiencia);
   }
 
-  public editarExperiencia(experiencia: Experiencia): Observable<Experiencia[]>{
-    return this.htttpClient.post<Experiencia[]>(this.url + 'edit', experiencia);
+  public editarExperiencia(experiencia: Experiencia): Observable<Experiencia>{
+    return this.htttpClient.put<Experiencia>(this.url + 'editar', experiencia);
   }
 
-  public borrarExperiencia(experiencia: Experiencia): Observable<Experiencia[]>{
-    return this.htttpClient.post<Experiencia[]>(this.url + 'delete', experiencia);
+  public borrarExperiencia(id: number): Observable<Experiencia>{
+    return this.htttpClient.delete<Experiencia>(this.url + `borrar/${id}`);
   }
 }

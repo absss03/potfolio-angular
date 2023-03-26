@@ -18,15 +18,15 @@ export class FormacionService {
     return this.htttpClient.get<Formacion>(this.url + `ver/${id}`);
   }
 
-  public crearFormacion(Formacion: Formacion): Observable<Formacion[]>{
-    return this.htttpClient.post<Formacion[]>(this.url + 'create', Formacion);
+  public crearFormacion(formacion: Formacion): Observable<Formacion>{
+    return this.htttpClient.post<Formacion>(this.url + 'crear', formacion);
   }
 
-  public editarFormacion(Formacion: Formacion): Observable<Formacion[]>{
-    return this.htttpClient.post<Formacion[]>(this.url + 'edit', Formacion);
+  public editarFormacion(formacion: Formacion): Observable<Formacion>{
+    return this.htttpClient.put<Formacion>(this.url + 'editar', formacion);
   }
 
-  public borrarFormacion(Formacion: Formacion): Observable<Formacion[]>{
-    return this.htttpClient.post<Formacion[]>(this.url + 'delete', Formacion);
+  public borrarFormacion(id: number): Observable<Formacion>{
+    return this.htttpClient.delete<Formacion>(this.url + `borrar/${id}`);
   }
 }
