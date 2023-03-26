@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './componentes/login/login.component';
 import { ModalBannerComponent } from './componentes/modales/modal-banner/modal-banner.component';
 import { ModalExperienciaComponent } from './componentes/modales/modal-experiencia/modal-experiencia.component';
-import { ModalPersonalComponent } from './componentes/modales/modal-personal/modal-personal.component';
+//import { ModalPersonalComponent } from './componentes/modales/modal-personal/modal-personal.component';
 
 @NgModule({
   declarations: [
