@@ -32,7 +32,7 @@ import { ModalExperienciaComponent } from './componentes/modales/modal-experienc
     LoginComponent,
     ModalBannerComponent,
     ModalExperienciaComponent,
-    ModalPersonalComponent
+    //ModalPersonalComponent
   ],
   imports: [
     BrowserModule,
