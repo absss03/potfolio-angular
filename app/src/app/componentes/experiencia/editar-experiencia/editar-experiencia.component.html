@@ -1,0 +1,67 @@
+<div class="container">
+  <form name="editarExperiencia" #editarExperiencia="ngForm">
+    <div class="form-group">
+      <label for="experiencia">Experiencia</label>
+      <input
+        type="text"
+        class="form-control"
+        id="experiencia"
+        required
+        [(ngModel)]="model.empresa"
+        name="experiencia"
+        #experiencia="ngModel"
+      />
+      <div [hidden]="experiencia.valid || experiencia.pristine" class="alert alert-danger">
+        La Experiencia es requerida
+      </div>
+      <label for="inicio">Fecha de Inicio</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inicio"
+        required
+        [(ngModel)]="model.inicio"
+        name="inicio"
+        #inicio="ngModel"
+        />
+      <div [hidden]="inicio.valid || inicio.pristine" class="alert alert-danger">
+        La Fecha de Inicio es requerida
+      </div>
+      <label for="fin">Fecha de Fin</label>
+      <input
+        type="text"
+        class="form-control"
+        id="fin"
+        required
+        [(ngModel)]="model.fin"
+        name="fin"
+        #fin="ngModel"
+        />
+      <div [hidden]="fin.valid || fin.pristine" class="alert alert-danger">
+        La Fecha de Fin es requerida
+      </div>
+      <label for="puesto">Descripcion del Puesto</label>
+      <textarea
+        type="textarea"
+        class="form-control"
+        id="puesto"
+        required
+        [(ngModel)]="model.descripccionPuesto"
+        name="puesto"
+        #puesto="ngModel"
+        ></textarea>
+      <div [hidden]="puesto.valid || puesto.pristine" class="alert alert-danger">
+        La Descripcion del Puesto es requerida
+      </div>
+      <hr>
+      <div class="editar text-end">
+        <button (click)="onSubmit()" type="submit" class="button" [disabled]="!editarExperiencia.form.valid">
+          <fa-icon icon="floppy-disk" class="fa-solid fa-2xl"></fa-icon>
+        </button>
+        <button (click)="onCancel()" type="button" class="button">
+          <fa-icon icon="square-xmark" class="fa-solid fa-2xl"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

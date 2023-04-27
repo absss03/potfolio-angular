@@ -1,14 +1,32 @@
 <div class="container-fluid">
     <div class="experiencia rounded-4">
         <div class="eperiencia" >
-            <h1>Experiencia</h1>
-            <div *ngFor="let experiencia of experiencias">
-                <h5>{{experiencia.empresa}} ({{experiencia.inicio}}-{{experiencia.fin}})</h5>
-                <p>{{experiencia.descripccionPuesto}}</p>
-                <div *ngIf="esUsuario" class="editar text-end">
-                    <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                    <i class="fa-solid fa-xmark fa-lg m-2"></i>
-                    <i class="fa-solid fa-plus fa-lg"></i>
+            <h1>Experiencia
+                <button *ngIf="estadoService.logueado" [disabled]="estadoService.editando" class="button" (click)="accion('agrego', 0)">
+                    <fa-icon icon="square-plus" class="fa-solid fa-lg"></fa-icon>
+                </button>
+            </h1>
+            <div *ngIf="editMode && estadoService.accion=='agrego'">
+                <app-editar-experiencia (submit)="onSubmit($event, 0)" [model]="experienciaNueva"></app-editar-experiencia>
+            </div>
+            <div *ngFor="let experiencia of experiencias; let i = index">
+                <div *ngIf="!editModes[i]">
+                    <h5>{{experiencia.empresa}} ({{experiencia.inicio}}-{{experiencia.fin}})</h5>
+                    <p>{{experiencia.descripccionPuesto}}</p>
+                    <div *ngIf="estadoService.logueado" class="editar text-end">
+                        <button [disabled]="estadoService.editando" class="button" (click)="accion('edito',i)">
+                            <fa-icon icon="square-pen" class="fa-solid fa-2xl"></fa-icon>
+                        </button>
+                        <button [disabled]="estadoService.editando" class="button" (click)="accion('borro',i)">
+                            <fa-icon icon="square-xmark" class="fa-solid fa-2xl"></fa-icon>
+                        </button>
+                    </div>
+                </div>
+                <div *ngIf="editModes[i] && estadoService.accion=='edito'">
+                    <app-editar-experiencia (submit)="onSubmit($event, i)" [model]="experiencia"></app-editar-experiencia>
+                </div>
+                <div *ngIf="editModes[i] && estadoService.accion=='borro'">
+                    <app-borrar-experiencia (submit)="onSubmit($event, i)" [model]="experiencia"></app-borrar-experiencia>
                 </div>
             </div>
         </div>

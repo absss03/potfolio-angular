@@ -1,17 +1,22 @@
 <div class="container-fluid">
-    <div class="personal">
-        <img src="{{fotoperfil}}" class="perfil rounded-circle rounded-bottom-3 " alt="{{nombre}}">
-        <p class="sobre-mi">{{introduccion}}</p>
-        <div *ngIf="esUsuario" class="editar text-end">
-            <button class="boton" data-id="fk_articles" data-bs-toggle="modal" data-bs-target="#editPersona">
-                <i class="fa-solid fa-pen-to-square fa-lg"></i>
+    <img src="{{persona.fotoperfil}}" class="perfil rounded-circle rounded-bottom-3 " alt="{{persona.nombre}}">
+    <div *ngIf="!editMode">
+        <div *ngIf="estadoService.logueado" class="editar text-end">
+            <button [disabled]="estadoService.editando" class="button" (click)="accion('edito')">
+                <fa-icon icon="square-pen" class="fa fa-2xl"></fa-icon>
             </button>
-            <button class="boton">
-                <i class="fa-solid fa-xmark fa-lg m-1"></i>
+            <!-- <button [disabled]="estadoService.editando" class="button" (click)="accion('agrego')">
+                <fa-icon icon="square-plus" class="fa fa-2xl"></fa-icon>
             </button>
-            <button class="boton" title="Add this item" data-bs-toggle="modal" data-bs-target="#agregaPersona">
-                <i class="fa-solid fa-plus fa-lg m-1"></i>
-            </button>
+            <button [disabled]="estadoService.editando" class="button" (click)="accion('borro')">
+                <fa-icon icon="square-xmark" class="fa fa-2xl"></fa-icon>
+            </button> -->
         </div>
+        <div class="personal">
+            <p class="sobre-mi">{{persona.introduccion}}</p>
+        </div>
+    </div>
+    <div *ngIf="editMode">
+        <app-editar-personal (submit)="onSubmit($event)" [model]="persona"></app-editar-personal>
     </div>
 </div>

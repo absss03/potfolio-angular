@@ -1,0 +1,57 @@
+<div class="container">
+    <form name="borrarExperiencia" #borrarExperiencia="ngForm">
+        <div class="form-group">
+            <fieldset [disabled]="true">   
+                <label for="experiencia">Experiencia</label>
+                <input
+                type="text"
+                class="form-control"
+                id="experiencia"
+                required
+                [(ngModel)]="model.empresa"
+                name="experiencia"
+                #experiencia="ngModel"
+                />
+                <label for="inicio">Fecha de Inicio</label>
+                <input
+                type="text"
+                class="form-control"
+                id="inicio"
+                required
+                [(ngModel)]="model.inicio"
+                name="inicio"
+                #inicio="ngModel"
+                />
+                <label for="fin">Fecha de Fin</label>
+                <input
+                type="text"
+                class="form-control"
+                id="fin"
+                required
+                [(ngModel)]="model.fin"
+                name="fin"
+                #fin="ngModel"
+                />
+                <label for="puesto">Descripcion del Puesto</label>
+                <textarea
+                type="textarea"
+                class="form-control"
+                id="puesto"
+                required
+                [(ngModel)]="model.descripccionPuesto"
+                name="puesto"
+                #puesto="ngModel"
+                ></textarea>
+            </fieldset>
+            <hr>
+            <div class="editar text-end">
+                <button (click)="onSubmit()" type="submit" class="button">
+                    <fa-icon icon="trash-can" class="fa-solid fa-2xl"></fa-icon>
+                </button>
+                <button (click)="onCancel()" type="button" class="button">
+                    <fa-icon icon="square-xmark" class="fa-solid fa-2xl"></fa-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+  </div>

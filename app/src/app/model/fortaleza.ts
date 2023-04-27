@@ -1,9 +1,10 @@
 export class Fortaleza {
-    id?: number;
+    id: number;
     
     texto: string;
 
-    constructor(texto: string) {
+    constructor(id: number, texto: string) {
+        this.id = id;
         this.texto = texto;
     }
 }

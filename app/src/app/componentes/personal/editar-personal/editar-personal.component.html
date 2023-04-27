@@ -1,0 +1,28 @@
+<div class="container">
+    <form name="editarPersonal" #editarPersonal="ngForm">
+      <div class="form-group">
+        <label for="introduccion">Introduccion</label>
+        <textarea
+          type="textarea"
+          class="form-control"
+          id="introduccion"
+          required
+          [(ngModel)]="model.introduccion"
+          name="introduccion"
+          #introduccion="ngModel"
+        ></textarea>
+        <div [hidden]="introduccion.valid || introduccion.pristine" class="alert alert-danger">
+          La Introduccion es requerida
+        </div>
+        <hr>
+        <div class="editar text-end">
+          <button (click)="onSubmit()" type="submit" class="button" [disabled]="!editarPersonal.form.valid">
+            <fa-icon icon="floppy-disk" class="fa-solid fa-2xl"></fa-icon>
+          </button>
+          <button (click)="onCancel()" type="button" class="button">
+            <fa-icon icon="square-xmark" class="fa-solid fa-2xl"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>

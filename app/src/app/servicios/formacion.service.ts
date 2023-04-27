@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Formacion } from '../model/formacion';
+import { Constantes } from '../model/constantes';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormacionService {
-  url= 'http://localhost:8080/formacion/'
+  url= 'http://'+Constantes.backend+':8080/formacion/'
   constructor(private htttpClient:HttpClient) { }
 
   public listarFormaciones(): Observable<Formacion[]>{

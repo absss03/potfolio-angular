@@ -1,9 +1,10 @@
-.card{
-    color: #000;
-}
-
 #formacion{
     margin: 2%;
+}
+
+.card{
+    color: #000;
+    background-color: #e7e5e5
 }
 
 .editar{

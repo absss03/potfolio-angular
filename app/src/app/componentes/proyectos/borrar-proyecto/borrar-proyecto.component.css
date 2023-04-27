@@ -1,0 +1,7 @@
+.container{
+    width: 100%;
+    border: #f90202 solid 2px;
+    border-radius: 5px;
+    color: ivory;
+    box-shadow:0 5px 10px rgba(246, 244, 244, 0.924);
+}

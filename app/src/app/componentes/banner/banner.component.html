@@ -1,11 +1,16 @@
-<div class="banner" style.background-image="url('{{banner}}')">
-    <div *ngIf="esUsuario" class="editar text-end">
-        <i class="fa-solid fa-pen-to-square fa-lg"></i>
-        <i class="fa-solid fa-xmark fa-lg m-2"></i>
-        <i class="fa-solid fa-plus fa-lg"></i>
+<div class="banner" style.background-image="url('{{persona.banner}}')">
+    <div *ngIf="!editMode">
+        <div *ngIf="estadoService.logueado" class="editar text-end">
+            <button [disabled]="estadoService.editando" class="button" (click)="accion('edito')">
+                <fa-icon icon="square-pen" class="fa-thin fa-2xl"></fa-icon>
+            </button>
+        </div>
+        <div class="texto-en-imagen">
+            <h1 class="bold">{{persona.nombre}} {{persona.apellido}}</h1>
+            <h2>{{persona.titulo}}</h2>
+        </div>
     </div>
-    <div class="texto-en-imagen">
-        <h1 class="bold">{{nombre}} {{apellido}}</h1>
-        <h2>{{titulo}}</h2>
+    <div *ngIf="editMode">
+        <app-editar-banner (submit)="onSubmit($event)" [model]="persona"></app-editar-banner>
     </div>
-</div>
+</div> 

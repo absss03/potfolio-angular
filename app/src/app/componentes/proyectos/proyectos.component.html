@@ -1,19 +1,31 @@
 <section id="proyectos">
     <div class="container-fluid">
-        <div class="row" >
-            <h1 class=" mb-4">Mis proyectos</h1>
-            <div class="col-6 mb-3 mb-sm-0" *ngFor="let proyecto of proyectos">
-                <div>
+        <div class="row">
+            <div>
+                <h1 class="mt-5 mb-5">Mis proyectos
+                    <button *ngIf="estadoService.logueado" [disabled]="estadoService.editando" class="button" (click)="accion('agrego', 0)">
+                        <fa-icon icon="square-plus" class="fa-solid fa-lg"></fa-icon>
+                    </button>
+                </h1>
+                <div *ngIf="editMode && estadoService.accion=='agrego'">
+                    <app-editar-proyecto (submit)="onSubmit($event, 0)" [model]="proyectoNuevo"></app-editar-proyecto>
+                </div>
+            </div>
+            <div *ngFor="let proyecto of proyectos; let i = index" class="col-6 mb-3 mb-sm-0">
+                <div *ngIf="!editModes[i]">
                     <div class="card h-100" style="background-image: linear-gradient(to top right,rgb(153, 84, 63), rgb(81, 64, 99))" >
                         <div class="card-body" style="color: ivory">
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title">{{proyecto.tituloProyecto}}</h5>
                                 </div>
-                                <div *ngIf="esUsuario" class="editar text-end col">
-                                    <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                                    <i class="fa-solid fa-xmark fa-lg m-2"></i>
-                                    <i class="fa-solid fa-plus fa-lg"></i>
+                                <div *ngIf="estadoService.logueado" class="editar text-end">
+                                    <button [disabled]="estadoService.editando" class="button" (click)="accion('edito', i)">
+                                        <fa-icon icon="square-pen" class="fa-solid fa-2xl"></fa-icon>
+                                    </button>
+                                    <button [disabled]="estadoService.editando" class="button" (click)="accion('borro', i)">
+                                        <fa-icon icon="square-xmark" class="fa-solid fa-2xl"></fa-icon>
+                                    </button>
                                 </div>
                             </div>
                             <p class="card-text w-75">{{proyecto.descripcionProyecto}}</p>
@@ -22,6 +34,12 @@
                             </div> 
                         </div>
                     </div>
+                </div>
+                <div *ngIf="editModes[i] && estadoService.accion=='edito'">
+                    <app-editar-proyecto (submit)="onSubmit($event, i)" [model]="proyecto"></app-editar-proyecto>
+                </div>
+                <div *ngIf="editModes[i] && estadoService.accion=='borro'">
+                    <app-borrar-proyecto (submit)="onSubmit($event, i)" [model]="proyecto"></app-borrar-proyecto>
                 </div>
             </div>
         </div>

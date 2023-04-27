@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Persona } from '../model/persona';
+import { Constantes } from '../model/constantes'
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonaService {
-  url= 'http://localhost:8080/persona/'
+  url= 'http://'+Constantes.backend+':8080/persona/'
   constructor(private htttpClient:HttpClient) { }
 
   public listarPersonas(): Observable<Persona[]>{

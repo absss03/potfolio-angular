@@ -1,0 +1,54 @@
+<div class="container">
+    <form name="editarFormacion" #editarFormacion="ngForm">
+      <div class="form-group">
+        <label for="formacion">Formacion</label>
+        <input
+          type="text"
+          class="form-control"
+          id="formacion"
+          required
+          [(ngModel)]="model.institucion"
+          name="formacion"
+          #formacion="ngModel"
+        />
+        <div [hidden]="formacion.valid || formacion.pristine" class="alert alert-danger">
+          La Formacion es requerida
+        </div>
+        <label for="descripccionFormacion">Descripccion de la Formacion</label>
+        <textarea
+          type="textarea"
+          class="form-control"
+          id="descripccionFormacion"
+          required
+          [(ngModel)]="model.descripccionFormacion"
+          name="descripccionFormacion"
+          #descripccionFormacion="ngModel"
+          ></textarea>
+        <div [hidden]="descripccionFormacion.valid || descripccionFormacion.pristine" class="alert alert-danger">
+          La Descripccion de la Formacion es requerida
+        </div>
+        <label for="alt">Etiqueta</label>
+        <input
+          type="text"
+          class="form-control"
+          id="alt"
+          required
+          [(ngModel)]="model.alt"
+          name="alt"
+          #alt="ngModel"
+          />
+        <div [hidden]="alt.valid || alt.pristine" class="alert alert-danger">
+          La Fecha de Fin es requerida
+        </div>
+        <hr>
+        <div class="editar text-end">
+          <button (click)="onSubmit()" type="submit" class="button" [disabled]="!editarFormacion.form.valid">
+            <fa-icon icon="floppy-disk" class="fa-solid fa-2xl"></fa-icon>
+          </button>
+          <button (click)="onCancel()" type="button" class="button">
+            <fa-icon icon="square-xmark" class="fa-solid fa-2xl"></fa-icon>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>

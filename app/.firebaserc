@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "argentina-programa-cab",
+    "cab": "argentina-programa-cab"
+  },
+  "targets": {},
+  "etags": {}
+}

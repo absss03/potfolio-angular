@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonaService } from 'src/app/servicios/persona.service';
-//import { DatosService } from 'src/app/servicios/datos.service';
 
 @Component({
   selector: 'app-footer',

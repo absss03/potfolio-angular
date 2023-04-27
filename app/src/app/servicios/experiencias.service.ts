@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Experiencia } from '../model/experiencia';
+import { Constantes } from '../model/constantes';
 
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class ExperienciasService {
-  url= 'http://localhost:8080/experiencia/'
+  url= 'http://'+Constantes.backend+':8080/experiencia/'
   constructor(private htttpClient:HttpClient) { }
 
   public listarExperiencias(): Observable<Experiencia[]>{

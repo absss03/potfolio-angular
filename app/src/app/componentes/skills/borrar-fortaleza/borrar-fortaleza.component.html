@@ -1,0 +1,29 @@
+<div class="container">
+    <form name="editarFortaleza" #editarFortaleza="ngForm">
+      <div class="form-group">
+        <fieldset [disabled]="true">
+            <label for="fortaleza">Fortaleza</label>
+            <textarea
+            type="textarea"
+            class="form-control"
+            id="fortaleza"
+            required
+            [(ngModel)]="model.texto"
+            name="fortaleza"
+            #fortaleza="ngModel"
+            ></textarea>
+            </fieldset>
+        <hr>
+        <div class="editar text-end">
+          <button (click)="onSubmit()" type="submit" class="button">
+            <fa-icon icon="trash-can" class="fa-solid fa-2xl"></fa-icon>
+          </button>
+          <button (click)="onCancel()" type="button" class="button">
+            <fa-icon icon="square-xmark" class="fa-solid fa-2xl"></fa-icon>
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+

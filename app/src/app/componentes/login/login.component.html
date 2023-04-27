@@ -1,5 +1,5 @@
 <!-- modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header border-bottom-0">
@@ -10,34 +10,31 @@
                 <h3>Registrate</h3>
             </div>
             <div class="modal-body">
-
-                <!-- formulario login -->
-                <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+                <form [formGroup]="loginform" (ngSubmit)="onEnviar()">
                     <div class="m-2">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" formControlName="email" class="form-control" placeholder="Ingrese su direccion email..." [class.is-invalid]="MailValid">
-                        <div class *ngIf="Mail?.errors && Mail?.touched" style="color:red;">
-                            <p *ngIf="Mail?.hasError('required')" >Este campo no debe estar en blanco</p>
-                            <p *ngIf="Mail?.hasError('email')" >El formato de email debe ser valido</p>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" formControlName="email" class="form-control" placeholder="Ingrese su direccion email..." [class.is-invalid]="MailValid">
+                            <div class *ngIf="Mail?.errors && Mail?.touched" style="color:red;">
+                                <p *ngIf="Mail?.hasError('required')" >Este campo no debe estar en blanco</p>
+                                <p *ngIf="Mail?.hasError('email')" >El formato de email debe ser valido</p>
+                            </div>
                         </div>
                     </div>
-
                     <div class="m-2">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" formControlName="password" class="form-control" placeholder="Ingrese su contraseña..." [class.is-invalid]="PasswordValid">
-                        <div *ngIf="Password?.errors && Password?.touched" style="color: red;">
-                            <p *ngIf="Password?.hasError('required')" >Este campo no debe estar en blanco</p>
-                            <p *ngIf="Password?.errors?.['minlength']" >La contraseña es demasiado corta</p>
+                        <div class="form-group">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" formControlName="password" class="form-control" placeholder="Ingrese su contraseña..." [class.is-invalid]="PasswordValid">
+                            <div *ngIf="Password?.errors && Password?.touched" style="color: red;">
+                                <p *ngIf="Password?.hasError('required')" >Este campo no debe estar en blanco</p>
+                                <p *ngIf="Password?.errors?.['minlength']" >La contraseña es demasiado corta</p>
+                            </div>
                         </div>
                     </div>
-
-
                     <div class="text-center">
-                        <button  (click)="changeStatus(true)" type="submit" class="boton-footer btn btn-secondary btn-round">Login</button>
+                        <button type="submit" data-bs-dismiss="modal" class="boton-footer btn btn-secondary btn-round">Login</button>
                     </div>
                 </form>
-
-
             </div>
         </div>
     </div>

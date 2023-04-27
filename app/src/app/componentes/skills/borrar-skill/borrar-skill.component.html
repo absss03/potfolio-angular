@@ -1,0 +1,38 @@
+<div class="container">
+    <form name="borrarSkill" #editarSkill="ngForm">
+        <div class="form-group">
+            <fieldset [disabled]="true">
+                <label for="lenguaje">Lenguaje</label>
+                <input
+                type="text"
+                class="form-control"
+                id="lenguaje"
+                required
+                [(ngModel)]="model.lenguaje"
+                name="lenguaje"
+                #lenguaje="ngModel"
+                />
+                <label for="porcentaje">Porcentaje</label>
+                <input
+                type="text"
+                class="form-control"
+                id="porcentaje"
+                required
+                [(ngModel)]="model.porcentaje"
+                name="porcentaje"
+                #porcentaje="ngModel"
+                />
+            </fieldset>
+            <hr>
+            <div class="editar text-end">
+                <button (click)="onSubmit()" type="submit" class="button">
+                    <fa-icon icon="trash-can" class="fa-solid fa-2xl"></fa-icon>
+                </button>
+                <button (click)="onCancel()" type="button" class="button">
+                    <fa-icon icon="square-xmark" class="fa-solid fa-2xl"></fa-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+

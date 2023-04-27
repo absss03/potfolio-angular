@@ -1,15 +1,11 @@
-<router-outlet></router-outlet>
-
-<!-- pipes -->
-
-<!-- aca van en orden los <app-selectores> -->
+<!--  -->
+<app-login></app-login>
+<!--  -->
 <app-navbar></app-navbar>
-<app-login [esUsuario]="login" (newItemEvent)="changeStatus($event)"></app-login>
-<app-banner [esUsuario]="login" ></app-banner>
-<app-personal [esUsuario]="login"></app-personal>
-<app-experiencia [esUsuario]="login"></app-experiencia>
-<app-formacion [esUsuario]="login"></app-formacion>
-<app-skills [esUsuario]="login"></app-skills>
-<app-proyectos [esUsuario]="login"></app-proyectos>
+<app-banner></app-banner>
+<app-personal></app-personal>
+<app-experiencia></app-experiencia>
+<app-formacion></app-formacion>
+<app-skills></app-skills>
+<app-proyectos></app-proyectos>
 <app-footer></app-footer>
-<!-- <app-modal-personal></app-modal-personal> -->

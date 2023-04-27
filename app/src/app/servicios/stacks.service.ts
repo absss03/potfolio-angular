@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Stack } from '../model/stack';
+import { Constantes } from '../model/constantes'
 
 @Injectable({
   providedIn: 'root'
 })
 export class StackService {
-  url= 'http://localhost:8080/stack/'
+  url= 'http://'+Constantes.backend+':8080/stack/'
   constructor(private htttpClient:HttpClient) { }
 
   public listarStacks(): Observable<Stack[]>{

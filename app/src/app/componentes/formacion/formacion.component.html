@@ -1,19 +1,37 @@
 <section id="formacion">
-    <h1 class="mt-5 mb-5 text-center">Formacion</h1>
-    
+    <h1 class="mt-5 mb-5 text-center">Formacion
+        <button *ngIf="estadoService.logueado" [disabled]="estadoService.editando" class="button" (click)="accion('agrego', 0)">
+            <fa-icon icon="square-plus" class="fa-solid fa-lg"></fa-icon>
+        </button>
+    </h1>
+    <div *ngIf="editMode && estadoService.accion=='agrego'">
+        <app-editar-formacion (submit)="onSubmit($event, 0)" [model]="formacionNueva"></app-editar-formacion>
+    </div>
     <div class="row row-cols-1 row-cols-md-4 g-4" >
-        <div class="col" *ngFor= "let formacion of formaciones">
-            <div class="card h-100 ">
-                <img src={{formacion.imagen}} class="card-img-top" alt={{formacion.alt}}>
-                <div class="card-body text-center">
-                    <h5 class="card-title">{{formacion.institucion}}</h5>
-                    <p class="card-text">{{formacion.descripccionFormacion}}.</p>
+        <div class="col" *ngFor= "let formacion of formaciones; let i = index">
+            <div *ngIf="!editModes[i]">
+                <div class="card h-100 ">
+                    <img src={{formacion.imagen}} class="card-img-top" alt={{formacion.alt}}>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{formacion.institucion}}</h5>
+                        <p class="card-text">{{formacion.descripccionFormacion}}.</p>
+                    </div>
+                    <!-- Botones -->
+                    <div *ngIf="estadoService.logueado" class="editar text-end">
+                        <button [disabled]="estadoService.editando" class="button" (click)="accion('edito',i)">
+                            <fa-icon icon="square-pen" class="fa-solid fa-2xl"></fa-icon>
+                        </button>
+                        <button [disabled]="estadoService.editando" class="button" (click)="accion('borro',i)">
+                            <fa-icon icon="square-xmark" class="fa-solid fa-2xl"></fa-icon>
+                        </button>
+                    </div>
                 </div>
-                <div *ngIf="esUsuario" class="editar text-end">
-                    <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                    <i class="fa-solid fa-xmark fa-lg m-2"></i>
-                    <i class="fa-solid fa-plus fa-lg"></i>
-                </div>
+            </div>
+            <div *ngIf="editModes[i] && estadoService.accion=='edito'">
+                <app-editar-formacion (submit)="onSubmit($event, i)" [model]="formacion"></app-editar-formacion>
+            </div>
+            <div *ngIf="editModes[i] && estadoService.accion=='borro'">
+                <app-borrar-formacion (submit)="onSubmit($event, i)" [model]="formacion"></app-borrar-formacion>
             </div>
         </div>
     </div>    

@@ -2,31 +2,69 @@
     <div class="skills text-left">
         <div class="row row-cols-2">
             <div class="col-5">
-                <h2>Mis fortalezas</h2>
-                <div *ngFor="let fortaleza of fortalezas">
-                    <span class="para">{{fortaleza.texto}}</span>
-                    <div *ngIf="esUsuario" class="editar text-end">
-                        <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                        <i class="fa-solid fa-xmark fa-lg m-2"></i>
-                        <i class="fa-solid fa-plus fa-lg"></i>
+                <h1 class="mt-5 mb-5 ">Mis fortalezas
+                    <button *ngIf="estadoService.logueado" [disabled]="estadoService.editando" class="button" (click)="accion('fortaleza', 'agrego', 0)">
+                        <fa-icon icon="square-plus" class="fa-solid fa-lg"></fa-icon>
+                    </button>
+                </h1>
+                <div *ngIf="editModf && estadoService.accion=='agrego'">
+                    <app-editar-fortaleza (submit)="onSubmit('fortaleza', $event, 0)" [model]="fortalezaNueva"></app-editar-fortaleza>
+                </div>
+                <div *ngFor="let fortaleza of fortalezas; let f = index">
+                    <div *ngIf="!editModef[f]">
+                        <li class="fuerza">{{fortaleza.texto}}</li>
+                        <!-- Botones -->
+                        <div *ngIf="estadoService.logueado" class="editar text-end">
+                            <button [disabled]="estadoService.editando" class="button"  (click)="accion('fortaleza', 'edito', f)">
+                                <fa-icon icon="square-pen" class="fa-solid fa-2xl"></fa-icon>
+                            </button>
+                            <button [disabled]="estadoService.editando" class="button" (click)="accion('fortaleza', 'borro', f)">
+                                <fa-icon icon="square-xmark" class="fa-solid fa-2xl"></fa-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div *ngIf="editModef[f] && estadoService.accion=='edito'">
+                        <app-editar-fortaleza (submit)="onSubmit('fortaleza', $event, f)" [model]="fortaleza"></app-editar-fortaleza>
+                    </div>
+                    <div *ngIf="editModef[f] && estadoService.accion=='borro'">
+                        <app-borrar-fortaleza (submit)="onSubmit('fortaleza', $event, f)" [model]="fortaleza"></app-borrar-fortaleza>
                     </div>
                 </div>
             </div>
             <div class="col-7">
-                <h2>Mi Stack</h2>
-                <div *ngFor="let stack of stacks">
-                    <div class="barra-progreso" >
-                        <span class="titulo">{{stack.lenguaje}}</span>
-                        <div class="progress m-1" style="max-width: 100%">
-                            <div class="progress-bar progress-bar"
-                                [style.width]="stack.porcentaje"> {{stack.porcentaje}}
+                <h1 class="mt-5 mb-5">Mi Stack
+                    <button *ngIf="estadoService.logueado" [disabled]="estadoService.editando" class="button" (click)="accion('lenguaje', 'agrego', 0)">
+                        <fa-icon icon="square-plus" class="fa-solid fa-lg"></fa-icon>
+                    </button>
+                </h1>
+                <div *ngIf="editMode && estadoService.accion=='agrego'">
+                    <app-editar-skill (submit)="onSubmit('lenguaje', $event, 0)" [model]="stackNuevo"></app-editar-skill>
+                </div>
+                <div *ngFor="let stack of stacks; let i = index">
+                    <div *ngIf="!editModes[i]">
+                        <div class="barra-progreso">
+                            <span class="titulo">{{stack.lenguaje}}</span>
+                            <div class="progress m-1" style="max-width: 100%">
+                                <div class="progress-bar progress-bar"
+                                    [style.width]="stack.porcentaje">{{stack.porcentaje}}
+                                </div>
+                            </div>
+                            <!-- Botones -->
+                            <div *ngIf="estadoService.logueado" class="editar text-end">
+                                <button [disabled]="estadoService.editando" class="button" (click)="accion('lenguaje', 'edito', i)">
+                                    <fa-icon icon="square-pen" class="fa-solid fa-2xl"></fa-icon>
+                                </button>
+                                <button [disabled]="estadoService.editando" class="button" (click)="accion('lenguaje', 'borro', i)">
+                                    <fa-icon icon="square-xmark" class="fa-solid fa-2xl"></fa-icon>
+                                </button>
                             </div>
                         </div>
-                        <div *ngIf="esUsuario" class="editar text-end">
-                            <i class="fa-solid fa-pen-to-square fa-lg"></i>
-                            <i class="fa-solid fa-xmark fa-lg m-2"></i>
-                            <i class="fa-solid fa-plus fa-lg"></i>
-                        </div>
+                    </div>
+                    <div *ngIf="editModes[i] && estadoService.accion=='edito'">
+                        <app-editar-skill (submit)="onSubmit('lenguaje', $event, i)" [model]="stack"></app-editar-skill>
+                    </div>
+                    <div *ngIf="editModes[i] && estadoService.accion=='borro'">
+                        <app-borrar-skill (submit)="onSubmit('lenguaje', $event, i)" [model]="stack"></app-borrar-skill>
                     </div>
                 </div>
             </div>

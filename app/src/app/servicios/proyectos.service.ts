@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Proyecto } from '../model/proyecto';
+import { Constantes } from '../model/constantes';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProyectosService {
-  url= 'http://localhost:8080/proyecto/'
+  url= 'http://'+Constantes.backend+':8080/proyecto/'
   constructor(private htttpClient:HttpClient) { }
 
   public listarProyectos(): Observable<Proyecto[]>{

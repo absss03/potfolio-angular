@@ -6,11 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  login = false;
-  message = 'This password do not match any credentials';
-
-  changeStatus(status: boolean) {
-    this.login = status;
-  }
+  
 }

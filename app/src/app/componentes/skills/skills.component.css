@@ -1,5 +1,5 @@
 .skills{
-    padding: 10% 4% 10% 4% ;
+    padding: 8% 4% 8% 4% ;
     margin-left: 30px;
     margin-right: 30px;
 
@@ -9,6 +9,8 @@
     background-color: rgb(83, 49, 79);
 }
 
-.para{
+.fuerza{
+    border: 3px;
+    border-color: honeydew;
     white-space: pre-wrap;
 }

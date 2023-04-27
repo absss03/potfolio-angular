@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Fortaleza } from '../model/fortaleza';
+import { Constantes } from '../model/constantes';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FortalezasService {
-  url= 'http://localhost:8080/habilidad/'
+  url= 'http://'+Constantes.backend+':8080/habilidad/'
   constructor(private htttpClient:HttpClient) { }
 
   public listarHabilidades(): Observable<Fortaleza[]>{

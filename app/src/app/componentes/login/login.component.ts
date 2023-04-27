@@ -1,10 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { EstadoService } from 'src/app/servicios/estado.service';
+import { LoginService } from 'src/app/servicios/login.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Login } from 'src/app/model/login';
 
 @Component({
   selector: 'app-login',
@@ -13,33 +10,32 @@ import { Login } from 'src/app/model/login';
 })
 
 export class LoginComponent implements OnInit {
-  @Input() esUsuario: boolean = false;
-  @Output() newItemEvent = new EventEmitter<boolean>();
+  email!: string;
+  user_email: any;
+  user_password: any;
+  user_id: any;
+  
+  loginform!: FormGroup;
+  datos: any;
 
-  changeStatus(value: boolean) {
-    this.newItemEvent.emit(value);
+  verificado: Boolean = false;
+
+  constructor (public estadoService: EstadoService, private loginService: LoginService, private formBuilder: FormBuilder){
   }
 
-  form: FormGroup;
-
-  constructor (private formBuilder: FormBuilder){
-    this.form= this.formBuilder.group({
-      email:['',[Validators.required, Validators.email]],
-      password:['',[Validators.required, Validators.minLength(8)]],
-    })
+  ngOnInit() {
+    this.loginform = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
-
-
-  ngOnInit() {}
 
   get Password(){
-    return this.form.get("password");
+    return this.loginform.get("password");
   }
-
   get Mail(){
-    return this.form.get("email");
+    return this.loginform.get("email");
   }
-
   get PasswordValid(){
     return this.Password?.touched && !this.Password?.valid;
   }
@@ -47,12 +43,28 @@ export class LoginComponent implements OnInit {
     return this.Mail?.touched && !this.Mail?.valid;
   }
 
-  onEnviar(event: Event){
-    event.preventDefault;
-    if(this.form.valid){
-      alert("Todo OK. Enviar formulario")
-    }else{
-      this.form.markAllAsTouched();
+  verificar() {
+    this.verificado = false;
+    // this.datos.buscarMail(this.email).subscribe((data: { password: any; user_id: any; }) =>{
+    //   this.user_password=data.password;
+    //   this.user_id = data.user_id;
+    // })
+    if(this.loginform.controls['email'].value === "barbieriabigailok@gmail.com") {
+      this.verificado = true;
+    }
+    return this.verificado
+  }
+
+  onEnviar() {
+    if(this.loginform.controls['email'].touched && this.loginform.controls['email'].valid && this.verificar()) {
+      
+      if (this.loginform.controls['password'].value == "argentina") {
+        alert("Bienvenido "+ this.loginform.controls['email'].value)
+        this.estadoService.logueado = true;
+      } else {
+        alert("El Mail o el Password no coinciden!")
+        this.loginform.markAllAsTouched();
+      }
     }
   }
 }

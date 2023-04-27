@@ -1,0 +1,42 @@
+<div class="container">
+  <form name="editarProyecto" #editarProyecto="ngForm">
+    <div class="form-group">
+      <label for="titulo">Titulo del Proyecto</label>
+      <input
+        type="text"
+        class="form-control"
+        id="titulo"
+        required
+        [(ngModel)]="model.tituloProyecto"
+        name="titulo"
+        #titulo="ngModel"
+      />
+      <div [hidden]="titulo.valid || titulo.pristine" class="alert alert-danger">
+        El Titulo del Proyecto es requerido
+      </div>
+      <label for="proyecto">Descripcion del Proyecto</label>
+      <textarea
+        type="textarea"
+        class="form-control"
+        id="proyecto"
+        required
+        [(ngModel)]="model.descripcionProyecto"
+        name="proyecto"
+        #proyecto="ngModel"
+      ></textarea>
+      <div [hidden]="proyecto.valid || proyecto.pristine" class="alert alert-danger">
+        El Proyecto es requerido
+      </div>
+      <hr>
+      <div class="editar text-end">
+        <button (click)="onSubmit()" type="submit" class="button" [disabled]="!editarProyecto.form.valid">
+          <fa-icon icon="floppy-disk" class="fa-solid fa-2xl"></fa-icon>
+        </button>
+        <button (click)="onCancel()" type="button" class="button">
+          <fa-icon icon="square-xmark" class="fa-solid fa-2xl"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
